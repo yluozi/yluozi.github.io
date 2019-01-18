@@ -98,43 +98,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/22/yumanjia-file2/" data-id="cjr1fx8n60003ycoxhscl9g89" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/16/javascript/" class="article-date">
-  <time datetime="2019-01-16T05:49:26.000Z" itemprop="datePublished">2019-01-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/16/javascript/">javascript</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/16/javascript/" data-id="cjr1fx8mg0000ycoxksbnxehl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/22/yumanjia-file2/" data-id="cjr1gl43d0003xooxhgp4miy0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,11 +165,13 @@
 <p>并一列<br>select SS a from a1<br>union<br>select SS b from b1</p>
 <p>to_char(‘xx’,’YYYY’ )变年<br>substr(F_xada,1,length(F_xada)-4)缩减字段</p>
 <p>把数据库授权给yx，授权链接把资源给yx；<br>grant dba to yx;<br>grant connect,resource to yx;</p>
+<p>/<em>创建表空间</em>/<br>create tablespace yxh<br>logging<br>datafile ‘F:\03software\oracle11g\win64_11gR2_database_1of2\oradata\eyv\lwz01.dbf’<br>size 32m<br>autoextend on<br>next 32m maxsize 2048m<br>extent management local;<br>/<em>删除表空间</em>/<br>drop tablespace yxh;</p>
+<p>=============================================================================</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/yumanjia-file/" data-id="cjr1fx8mq0002ycox4lzqslpj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/yumanjia-file/" data-id="cjr1gl42x0002xooxgk9ajkdx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -270,7 +236,56 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/words/" data-id="cjr1fx8mn0001ycoxz6zcc24n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/words/" data-id="cjr1gl42v0001xoox7ynm7o00" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/16/javascript/" class="article-date">
+  <time datetime="2018-11-16T05:49:26.000Z" itemprop="datePublished">2018-11-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/16/javascript/">javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>报表传值：：</p>
+<p>有参数——-&lt;iframe id=””style=”” frameborder=”0” scrolling=”no” src=”<a href="http://10.18.206.66:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;&gt;" target="_blank" rel="noopener">http://10.18.206.66:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;&gt;</a></p>
+<p>下拉框——–<br>function changeMC(value){<br>    var arry=[‘one’,’two’];<br>    if(value==array[0]){<br>        document.getElementById(‘maji’).src=”<a href="http://10.18.206.66:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;" target="_blank" rel="noopener">http://10.18.206.66:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;</a><br>    }<br>    else if (value==array[1]){<br>        document.getElementById(‘maji’).src=”<a href="http://10.18.206.66:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2016&quot;" target="_blank" rel="noopener">http://10.18.206.66:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2016&quot;</a><br>    }</p>
+<p>}</p>
+<pre><code>&lt;select id=&apos;tt&apos; onchange=&quot;changeTzSrc(this.option[this.options.selectedIndex].value)&quot;&gt;
+&lt;option value=&apos; &apos; &gt;--请选择--&lt;/option&gt;
+&lt;option value=&apos;one&apos; &gt;1&lt;/option&gt;
+&lt;option value=&apos;two&apos; &gt;2&lt;/option&gt;
+&lt;/select&gt;
+&lt;iframe id=&quot;maji&quot;style=&quot;&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;http://10.18.206.66:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;&gt;&lt;/iframe&gt;
+</code></pre><p>jsp 传值：</p>
+<p>$(fuction(){<br>     $(‘#one’).arrt (“planLength”,”$[start.lenth_sum]”);</p>
+<p>});</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/16/javascript/" data-id="cjr1gl42n0000xoox8v08kg83" class="article-share-link">Share</a>
       
       
     </footer>
@@ -298,7 +313,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
     </div>
   </div>
 
@@ -315,15 +330,15 @@
           </li>
         
           <li>
-            <a href="/2019/01/16/javascript/">javascript</a>
-          </li>
-        
-          <li>
             <a href="/2019/01/06/yumanjia-file/">oracle sql基础语句</a>
           </li>
         
           <li>
             <a href="/2019/01/06/words/">words</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/javascript/">javascript</a>
           </li>
         
       </ul>
