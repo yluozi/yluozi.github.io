@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives | Hexo</title>
+  <title>oracle 用法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="1、首先进入命令提示符，输入sqlplus指令登录； 2、输入用户名和密码，但要记住用户名需输入system，(因为创建、删除、赋予权限、解锁加锁……都需通过system系统用户执行)； 3、创建用户：create user &amp;lt;用户名&amp;gt; identified by &amp;lt;密码&amp;gt; [default tablespace users];4、用户创建成功后，给用户赋予权限：great">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle 用法">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/yumanjia-file2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、首先进入命令提示符，输入sqlplus指令登录； 2、输入用户名和密码，但要记住用户名需输入system，(因为创建、删除、赋予权限、解锁加锁……都需通过system系统用户执行)； 3、创建用户：create user &amp;lt;用户名&amp;gt; identified by &amp;lt;密码&amp;gt; [default tablespace users];4、用户创建成功后，给用户赋予权限：great">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-18T03:12:22.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="oracle 用法">
+<meta name="twitter:description" content="1、首先进入命令提示符，输入sqlplus指令登录； 2、输入用户名和密码，但要记住用户名需输入system，(因为创建、删除、赋予权限、解锁加锁……都需通过system系统用户执行)； 3、创建用户：create user &amp;lt;用户名&amp;gt; identified by &amp;lt;密码&amp;gt; [default tablespace users];4、用户创建成功后，给用户赋予权限：great">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,107 +64,62 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/06/words/" class="archive-article-date">
-  <time datetime="2019-01-06T06:47:28.000Z" itemprop="datePublished">Jan 6</time>
+        <section id="main"><article id="post-yumanjia-file2" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/yumanjia-file2/" class="article-date">
+  <time datetime="2018-07-22T00:35:31.000Z" itemprop="datePublished">2018-07-22</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/06/words/">words</a>
+    <h1 class="article-title" itemprop="name">
+      oracle 用法
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/07/yumanjia-file/" class="archive-article-date">
-  <time datetime="2018-12-07T11:58:27.000Z" itemprop="datePublished">Dec 7</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/07/yumanjia-file/">oracle sql基础语句</a>
-    </h1>
-  
+        <p>1、首先进入命令提示符，输入sqlplus指令登录；</p>
+<p>2、输入用户名和密码，但要记住用户名需输入system，(因为创建、删除、赋予权限、解锁加锁……都需通过system系统用户执行)；</p>
+<p>3、创建用户：create user &lt;用户名&gt; identified by &lt;密码&gt; [default tablespace users];<br>4、用户创建成功后，给用户赋予权限：greate create session to &lt;用户名&gt;; </p>
+<p>5、命令提示符给出授权成功提示后，还可以切换所创建的用户conn &lt;用户名&gt;/&lt;密码&gt; [as &lt;角色&gt;]，验证是否创建成功。<br> grant create session to yxh;</p>
+<h1 id="conn-yxh-123456"><a href="#conn-yxh-123456" class="headerlink" title="conn yxh/123456;"></a>conn yxh/123456;</h1><p>-添加数据源：</p>
+<p>驱动：oracle.jdbc.OracleDrive</p>
+<p>url ： jdbc:oracle:thin:@11X.XX.XXX.XX:1521:orcl   </p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/16/javascript/" class="archive-article-date">
-  <time datetime="2018-11-16T05:49:26.000Z" itemprop="datePublished">Nov 16</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/16/javascript/">javascript</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/22/yumanjia-file2/" class="archive-article-date">
-  <time datetime="2018-07-22T00:35:31.000Z" itemprop="datePublished">Jul 22</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/22/yumanjia-file2/" data-id="cjr1gxqrt0000b4ox7od7ovyw" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/22/yumanjia-file2/">oracle 用法</a>
-    </h1>
-  
-
-    </header>
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/16/javascript/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          javascript
+        
+      </div>
+    </a>
   
   
-    </div></section>
-  
+</nav>
 
+  
+</article>
 
 </section>
         
