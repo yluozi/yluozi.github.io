@@ -98,7 +98,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/22/yumanjia-file2/" data-id="cjr1fgu180003t0oxmqx3w7r9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/22/yumanjia-file2/" data-id="cjr1fx8n60003ycoxhscl9g89" class="article-share-link">Share</a>
       
       
     </footer>
@@ -134,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/16/javascript/" data-id="cjr1fgu050000t0oxli0qey5c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/16/javascript/" data-id="cjr1fx8mg0000ycoxksbnxehl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -158,7 +158,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/06/yumanjia-file/">yumanjia file</a>
+      <a class="article-title" href="/2019/01/06/yumanjia-file/">oracle sql基础语句</a>
     </h1>
   
 
@@ -178,47 +178,34 @@
 <p>改变字段类型：<br>alter table T1 modify id char (10);</p>
 <p>创建自增字段：（主键）<br>create table menu( menuId number(10) not null primary key,<br>/<em>primary key 主键 </em>/<br>name varchar2(40) not null,<br>id_parent number(10) not null,<br>url varchar2(300) null);</p>
 <p>创建视图：<br>create view new as select  ename ,job , sal from emp where job =’manager’;</p>
-<p>拷贝视图或者表：</p>
-<p>create table new2 as select * from emp;</p>
-<p>查询不从复值，倒序：</p>
-<p>select distinct id,name,adress from T3 order by tid desc;</p>
-<p>–绝对值：abs()</p>
-<p>select abs (id) value from emp;</p>
-<p>–取整函数（大）：ceil（）</p>
-<p>select ceil（-2.1）value from emp;</p>
-<p>–取整函数（小）：floor()</p>
-<p>select floor (-2.1) value from emp;</p>
-<p>–四舍五入：round（）</p>
-<p>select round (1.235) value from emp ;</p>
-<p>–取整函数（截取）：trunc()</p>
-<p>select trunc(-2.11) value from emp;</p>
-<p>–取平方根：sqrt()</p>
-<p>select sqrt() value from emp;</p>
-<p>–取随机数： dbms_random (minvalue,maxvalue )</p>
-<p>select dbms_random.value (2,7) value from emp;</p>
-<p>–取符号：sign()</p>
-<p>select  sign (-3) value from emp;</p>
-<p>select sign (2) value from emp;</p>
+<p>拷贝视图或者表：<br>create table new2 as select * from emp;</p>
+<p>查询不从复值，倒序：<br>select distinct id,name,adress from T3 order by tid desc;</p>
+<p>–绝对值：abs()<br>select abs (id) value from emp;</p>
+<p>–取整函数（大）：ceil（）<br>select ceil（-2.1）value from emp;</p>
+<p>–取整函数（小）：floor()<br>select floor (-2.1) value from emp;</p>
+<p>–四舍五入：round（）<br>select round (1.235) value from emp ;</p>
+<p>–取整函数（截取）：trunc()<br>select trunc(-2.11) value from emp;</p>
+<p>–取平方根：sqrt()<br>select sqrt() value from emp;</p>
+<p>–取随机数： dbms_random (minvalue,maxvalue )<br>select dbms_random.value (2,7) value from emp;</p>
+<p>–取符号：sign()<br>select  sign (-3) value from emp;<br>select sign (2) value from emp;</p>
 <p>–取集合的最大值:greatest(value)<br>   select greatest(-1,3,5,7,9) value from dual;       –(9)</p>
 <p>–取集合的最小值:least(value)<br>   select least(-1,3,5,7,9) value from dual;       –(-1)</p>
-<p>–处理Null值：nvl(空值，代替值)<br>   select  nvl(null,10) value from dual;       –(10)<br>　　<br>   select nvl(score,10) score from student;</p>
+<p>–处理Null值：nvl(空值，代替值)<br>   select  nvl(null,10) value from dual;       –(10)　<br>   select nvl(score,10) score from student;</p>
 <p>–rownum小于某个数时可以直接作为查询条件（注意oracle不支持select top）<br>select * from student where rownum &lt;3;</p>
 <p>–区间查询<br>select <em> from (select rownum rn, student.</em> from student) where rn &gt;3 and rn&lt;6;</p>
 <p>–排序+前n条<br>select <em> from (select rownum rn, t.</em> from ( select d.* from DJDRUVER d order  by drivernumber)t )p where p.rn&lt;10;</p>
 <p>–排序+区间查询1<br>select <em> from (select rownum rn, t.</em> from ( select d.* from DJDRIVER d order by DJDRIVER_DRIVERTIMES)t )p where p.rn<9 and="" p.rn="">6;</9></p>
 <p>–排序+区间查询2<br>select <em> from (select rownum rn, t.</em> from ( select d.* from DJDRIVER d order by DJDRIVER_DRIVERTIMES)t where rownum<9 )p="" where="" p.rn="">6;–效率远高于方式一</9></p>
-<p>–分页查询效率高 </p>
-<p>select <em> from (select rownum rn, d.</em> from DJDRIVER d where rownum&lt;=20 )p </p>
+<p>–分页查询效率高<br>select <em> from (select rownum rn, d.</em> from DJDRIVER d where rownum&lt;=20 )p </p>
 <p>–在查询的字段后追加符号<br>select t.id||’%’, t.rowid from table1 t</p>
 <p>并一列<br>select SS a from a1<br>union<br>select SS b from b1</p>
-<p>to_char(‘xx’,’YYYY’ )变年</p>
-<p>substr(F_xada,1,length(F_xada)-4)缩减字段</p>
+<p>to_char(‘xx’,’YYYY’ )变年<br>substr(F_xada,1,length(F_xada)-4)缩减字段</p>
 <p>把数据库授权给yx，授权链接把资源给yx；<br>grant dba to yx;<br>grant connect,resource to yx;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/yumanjia-file/" data-id="cjr1fgu0i0001t0oxlne9jsso" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/yumanjia-file/" data-id="cjr1fx8mq0002ycox4lzqslpj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -283,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/words/" data-id="cjr1fgu0n0002t0oxkm18pqd3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/words/" data-id="cjr1fx8mn0001ycoxz6zcc24n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -332,7 +319,7 @@
           </li>
         
           <li>
-            <a href="/2019/01/06/yumanjia-file/">yumanjia file</a>
+            <a href="/2019/01/06/yumanjia-file/">oracle sql基础语句</a>
           </li>
         
           <li>
