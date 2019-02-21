@@ -1,75 +1,359 @@
-extends includes/layout
 
-block content
-    div#tag
-        h1.article-sort-item.title= _p('page.articles') + ' - ' + site.posts.length
-        - var year
-        - page.posts.each(function(article){
-            - var tempYear = date(article.date, 'YYYY')
-            if tempYear !== year
-                - year = tempYear
-                .article-sort-item.year= year
-            .article-sort-item
-                if article.link
-                    time.article-time(datetime=date_xml(article.date))= date(article.date)
-                    a.article-link(href=url_for(article.link) target="_blank")
-                        = article.title || 'No Title'
-                else
-                    time.article-time(datetime=date_xml(article.date))= date(article.date)
-                    a.article-link(href=url_for(article.path))= article.title || 'No Title'
-        - })
-    include includes/pagination
-    // - var categoriesList = list_categories({ show_count: false })
-    // - var tagsList = list_tags({ show_count: false })
-    // - var archivesList = list_archives({ show_count: false })
-    //
-    // div.archive
-    //     if !is_year()
-    //
-    //         h1 Archives
-    //
-    //         if theme.atom
-    //             p The feed is available via&nbsp;
-    //                 a(href=theme.atom) atom
-    //                 span .
-    //             br
-    //
-    //         aside
-    //             h2 Categories
-    //             if categoriesList
-    //                 != categoriesList
-    //             else
-    //                 p None.
-    //         br
-    //
-    //         aside
-    //             h2 Tags
-    //             if tagsList
-    //                 != tagsList
-    //             else
-    //                 p None.
-    //         br
-    //
-    //         aside
-    //             h2 Archives
-    //             if archivesList
-    //                 != archivesList
-    //             else
-    //                 p None.
-    //         br
-    //
-    //     else
-    //
-    //         h1= page.month + '/' + page.year
-    //
-    //         - page.posts.each(function(article){
-    //         .archive-list-item
-    //             if article.link
-    //                 a(href=url_for(article.link) target="_blank")= article.title || 'No Title'
-    //             else
-    //                 a(href=url_for(article.path))= article.title || 'No Title'
-    //             time(datetime=date_xml(article.date))= date(article.date)
-    //         - })
-    //         include includes/pagination
-            //div!= paginator()
+<!DOCTYPE html>
+<html lang="">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Archives: 2018/12 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <script type="application/ld+json">{}</script>
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2018/12/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    
 
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="1">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google +">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/mailto" title="Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="1"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2018/12/07/yumanjia-file/">
+                            oracle sql基础语句
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-07T19:58:27+08:00">
+	
+		    Dec 07, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p>创建表：<br>create table emp (eno number(2),ename char(14));</p>
+<p>数据删除：<br>delete emp where empno=123;</p>
+<p>数据修改：<br>update emp set ename =’akdi’,job=’maker’ where eno =4;</p>
+<p>插入数据：<br>insert into dept(dname,deptno) values(‘autoo’,10);</p>
+<p>从其他表中选择插入数据：<br>insert into emp (empno, ename) select id,name from old_emp where department in (10,20,30,40);</p>
+<p>使用参数：<br>insert into dept values(&amp;eno,&amp;ename); </p>
+<p>查询表：<br>select * from dept;</p>
+<p>修改表名：<br>alter table 表名 rename to 新表名；</p>
+<p>添加数据：<br>update student set tname =’网站’ where sno =2;</p>
+<p>改变字段类型：<br>alter table T1 modify id char (10);</p>
+<p>创建自增字段：（主键）<br>create table menu( menuId number(10) not null primary key,<br>/<em>primary key 主键 </em>/<br>name varchar2(40) not null,<br>id_parent number(10) not null,<br>url varchar2(300) null);</p>
+<p>创建视图：<br>create view new as select  ename ,job , sal from emp where job =’manager’;</p>
+<p>拷贝视图或者表：<br>create table new2 as select * from emp;</p>
+<p>查询不从复值，倒序：<br>select distinct id,name,adress from T3 order by tid desc;</p>
+<p>–绝对值：abs()<br>select abs (id) value from emp;</p>
+<p>–取整函数（大）：ceil（）<br>select ceil（-2.1）value from emp;</p>
+<p>–取整函数（小）：floor()<br>select floor (-2.1) value from emp;</p>
+<p>–四舍五入：round（）<br>select round (1.235) value from emp ;</p>
+<p>–取整函数（截取）：trunc()<br>select trunc(-2.11) value from emp;</p>
+<p>–取平方根：sqrt()<br>select sqrt() value from emp;</p>
+<p>–取随机数： dbms_random (minvalue,maxvalue )<br>select dbms_random.value (2,7) value from emp;</p>
+<p>–取符号：sign()<br>select  sign (-3) value from emp;<br>select sign (2) value from emp;</p>
+<p>–取集合的最大值:greatest(value)<br>   select greatest(-1,3,5,7,9) value from dual;       –(9)</p>
+<p>–取集合的最小值:least(value)<br>   select least(-1,3,5,7,9) value from dual;       –(-1)</p>
+<p>–处理Null值：nvl(空值，代替值)<br>   select  nvl(null,10) value from dual;       –(10)　<br>   select nvl(score,10) score from student;</p>
+<p>–rownum小于某个数时可以直接作为查询条件（注意oracle不支持select top）<br>select * from student where rownum &lt;3;</p>
+<p>–区间查询<br>select <em> from (select rownum rn, student.</em> from student) where rn &gt;3 and rn&lt;6;</p>
+<p>–排序+前n条<br>select <em> from (select rownum rn, t.</em> from ( select d.* from DJDRUVER d order  by drivernumber)t )p where p.rn&lt;10;</p>
+<p>–排序+区间查询1<br>select <em> from (select rownum rn, t.</em> from ( select d.* from DJDRIVER d order by DJDRIVER_DRIVERTIMES)t )p where p.rn<9 and="" p.rn="">6;</9></p>
+<p>–排序+区间查询2<br>select <em> from (select rownum rn, t.</em> from ( select d.* from DJDRIVER d order by DJDRIVER_DRIVERTIMES)t where rownum<9 )p="" where="" p.rn="">6;–效率远高于方式一</9></p>
+<p>–分页查询效率高<br>select <em> from (select rownum rn, d.</em> from DJDRIVER d where rownum&lt;=20 )p </p>
+<p>–在查询的字段后追加符号<br>select t.id||’%’, t.rowid from table1 t</p>
+<p>并一列<br>select SS a from a1<br>union<br>select SS b from b1</p>
+<p>to_char(‘xx’,’YYYY’ )变年<br>substr(F_xada,1,length(F_xada)-4)缩减字段</p>
+<p>把数据库授权给yx，授权链接把资源给yx；<br>grant dba to yx;<br>grant connect,resource to yx;</p>
+<p>NVL条件<br>NVL(E1, E2)的功能为：如果E1为NULL，则函数返回E2，否则返回E1本身。但此函数有一定局限，所以就有了NVL2函数。<br>拓展：NVL2函数:Oracle/PLSQL中的一个函数,Oracle在NVL函数的功能上扩展，提供了NVL2函数。NVL2(E1, E2, E3)的功能为：如果E1为NULL，则函数返回E3，若E1不为null，则返回E2。string1和replace_with必须为同一数据类型，除非显式的使用TO_CHAR函数。<br>select nvl(sum(t.dwxhl),1)<br>from tb_jhde t</p>
+<p>获取当前时间，并赋值：<br> select<br>F_PROVINCE,F_CITY,F_COUNTY,F_PROVINCEID,F_CITYID,F_COUNTYID,F_ADRESS,F_TITLE,F_DATAFROM,F_SJLY,F_FSSJ,F_RAINFALL,F_WATERDEPTH,F_WATERTYPE,F_BZ,F_TENANTID<br>        from<br>        W_CSLQFSXX t,<br>        (select trunc(sysdate, ‘yyyy’) as bn from dual) bn<br>        where<br>        to_char(F_DATATIME,’yyyy’) = to_char(bn.bn,’yyyy’)</p>
+<p>/<em>创建表空间</em>/<br>create tablespace yxh<br>logging<br>datafile ‘F:\03software\oracle11g\win64_11gR2_database_1of2\oradata\eyv\lwz01.dbf’<br>size 32m<br>autoextend on<br>next 32m maxsize 2048m<br>extent management local;<br>/<em>删除表空间</em>/<br>drop tablespace yxh;</p>
+<p>=============================================================================</p>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/2018/12/07/yumanjia-file/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+
+
+    </body>
+</html>

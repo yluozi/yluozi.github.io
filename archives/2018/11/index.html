@@ -1,75 +1,333 @@
-extends includes/layout
 
-block content
-    div#tag
-        h1.article-sort-item.title= _p('page.articles') + ' - ' + site.posts.length
-        - var year
-        - page.posts.each(function(article){
-            - var tempYear = date(article.date, 'YYYY')
-            if tempYear !== year
-                - year = tempYear
-                .article-sort-item.year= year
-            .article-sort-item
-                if article.link
-                    time.article-time(datetime=date_xml(article.date))= date(article.date)
-                    a.article-link(href=url_for(article.link) target="_blank")
-                        = article.title || 'No Title'
-                else
-                    time.article-time(datetime=date_xml(article.date))= date(article.date)
-                    a.article-link(href=url_for(article.path))= article.title || 'No Title'
-        - })
-    include includes/pagination
-    // - var categoriesList = list_categories({ show_count: false })
-    // - var tagsList = list_tags({ show_count: false })
-    // - var archivesList = list_archives({ show_count: false })
-    //
-    // div.archive
-    //     if !is_year()
-    //
-    //         h1 Archives
-    //
-    //         if theme.atom
-    //             p The feed is available via&nbsp;
-    //                 a(href=theme.atom) atom
-    //                 span .
-    //             br
-    //
-    //         aside
-    //             h2 Categories
-    //             if categoriesList
-    //                 != categoriesList
-    //             else
-    //                 p None.
-    //         br
-    //
-    //         aside
-    //             h2 Tags
-    //             if tagsList
-    //                 != tagsList
-    //             else
-    //                 p None.
-    //         br
-    //
-    //         aside
-    //             h2 Archives
-    //             if archivesList
-    //                 != archivesList
-    //             else
-    //                 p None.
-    //         br
-    //
-    //     else
-    //
-    //         h1= page.month + '/' + page.year
-    //
-    //         - page.posts.each(function(article){
-    //         .archive-list-item
-    //             if article.link
-    //                 a(href=url_for(article.link) target="_blank")= article.title || 'No Title'
-    //             else
-    //                 a(href=url_for(article.path))= article.title || 'No Title'
-    //             time(datetime=date_xml(article.date))= date(article.date)
-    //         - })
-    //         include includes/pagination
-            //div!= paginator()
+<!DOCTYPE html>
+<html lang="">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Archives: 2018/11 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <script type="application/ld+json">{}</script>
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2018/11/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    
 
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="1">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google +">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/mailto" title="Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="1"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2018/11/16/javascript/">
+                            javascript
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-11-16T13:49:26+08:00">
+	
+		    Nov 16, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p>报表传值：：</p>
+<p>有参数——-&lt;iframe id=””style=”” frameborder=”0” scrolling=”no” src=”<a href="http://10.XX.XXX.XX:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;&gt;" target="_blank" rel="noopener">http://10.XX.XXX.XX:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;&gt;</a></p>
+<p>下拉框——–<br>function changeMC(value){<br>    var arry=[‘one’,’two’];<br>    if(value==array[0]){<br>        document.getElementById(‘maji’).src=”<a href="http://10.XX.XXX.XX:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;" target="_blank" rel="noopener">http://10.XX.XXX.XX:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;</a><br>    }<br>    else if (value==array[1]){<br>        document.getElementById(‘maji’).src=”<a href="http://10.XX.XXX.XX:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2016&quot;" target="_blank" rel="noopener">http://10.XX.XXX.XX:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2016&quot;</a><br>    }</p>
+<p>}</p>
+<pre><code>&lt;select id=&apos;tt&apos; onchange=&quot;changeTzSrc(this.option[this.options.selectedIndex].value)&quot;&gt;
+&lt;option value=&apos; &apos; &gt;--请选择--&lt;/option&gt;
+&lt;option value=&apos;one&apos; &gt;1&lt;/option&gt;
+&lt;option value=&apos;two&apos; &gt;2&lt;/option&gt;
+&lt;/select&gt;
+&lt;iframe id=&quot;maji&quot;style=&quot;&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;http://10.XX.XXX.XX:8082/art/runReport?public=true&amp;reportId=99&amp;p-year=2015&quot;&gt;&lt;/iframe&gt;
+</code></pre><p>jsp 传值：</p>
+<p>$(fuction(){<br>     $(‘#one’).arrt (“planLength”,”$[start.lenth_sum]”);</p>
+<p>});</p>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/2018/11/16/javascript/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+
+
+    </body>
+</html>
